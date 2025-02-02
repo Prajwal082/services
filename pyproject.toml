@@ -11,6 +11,7 @@ azure-identity = "^1.19.0"
 python-dotenv = "^1.0.1"
 azure-mgmt-logic = "^10.0.0"
 azure-storage-blob = "^12.24.1"
+azure-keyvault = "^4.2.0"
 
 
 [build-system]
