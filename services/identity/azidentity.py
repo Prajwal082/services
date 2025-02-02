@@ -53,17 +53,4 @@ class Azidentity:
 
     def get_access_token(self,scope:str) -> Dict:
         return self._credential.get_token(scope)
-
-if __name__ == '__main__':
-
-    akv_cred_params = AzSPNcreds(tenant_id='b1022ee5-ffbd-4a0f-a4fa-b3cd23f3a9e1',
-    client_id='603a3dc6-3254-4449-9207-c7a8a64f04ec',
-    client_secret='owd8Q~3BkR_EdX6btlS6n3nIu2dJo6pZC~Fp6bEP'
-    )
-
-    obj = Azidentity(akv_cred_params)
-
-    # USE default scope
-    resource = "https://management.azure.com/.default"
-
-    print(obj.get_access_token(resource))
+        
