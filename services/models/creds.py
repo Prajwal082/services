@@ -9,6 +9,9 @@ class AzSPNcreds:
 class LogicApp:
     ... 
 
+@dataclass(frozen=True)
 class LogicAppConfig:
-    spn_creds : AzSPNcreds
     subscription_id : str
+    resource_group : str
+    logicapp_name : str 
+    logicapp_trigger : str
