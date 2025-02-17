@@ -8,8 +8,6 @@ from dotenv import load_dotenv
 
 from services.identity.azidentity import Azidentity
 
-from azure.core.pipeline import PipelineResponse
-
 from services.models.creds import ( 
     AzSPNcreds,
     LogicAppConfig)
