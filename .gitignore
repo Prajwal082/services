@@ -3,5 +3,3 @@
 *.pyc
 
 poetry.lock
-
-.env

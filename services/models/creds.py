@@ -6,8 +6,6 @@ class AzSPNcreds:
     client_id: str
     client_secret: str   
 
-class LogicApp:
-    ... 
 
 @dataclass(frozen=True)
 class LogicAppConfig:
