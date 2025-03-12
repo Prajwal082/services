@@ -1,9 +1,12 @@
 import logging
 import pprint
 
+import pandas as pd
+
+from typing import *
+
 from azure.storage.blob import (
-    BlobServiceClient,
-    ContainerClient
+    BlobServiceClient
 )
 
 from dotenv import load_dotenv
@@ -11,10 +14,6 @@ from dotenv import load_dotenv
 from services.identity.azidentity import Azidentity
 
 from services.models.creds import AzSPNcreds
-
-from collections import defaultdict
-
-
 class BlobSvc():
 
     def __init__(self,storage_accountname:str,spn_cred_cntx:AzSPNcreds = None) -> None:
@@ -29,8 +28,6 @@ class BlobSvc():
         self.logger = logging.getLogger(__class__.__name__)
 
         self.__initBlobSvcClient()
-
-        self.__default_dict = defaultdict()
 
     def __initBlobSvcClient(self):
 
@@ -47,21 +44,15 @@ class BlobSvc():
         )
 
 
-    def list_blobs(self,container_name:str,path:str) :
+    def list_blobs(self,container_name:str,name_starts_with:str) -> DataFrame:
         container_client = self.__blob_client.get_container_client(container_name)
 
-        blob_lst = container_client.list_blobs(name_starts_with = 'iceberg_catalog/IcebergDB/checkpoint/')
+        blob_lst = container_client.list_blobs(name_starts_with = name_starts_with)
 
-        key_info = ['name','container','last_modified']
+        columns = ['name','container','last_modified']
+        data = []
 
         for blob in blob_lst:
+            data.append([blob.get('name'),blob.get('container'),blob.get('last_modified')])
 
-            self.__default_dict[key_info[0]] = blob.get(key_info[0])
-            self.__default_dict[key_info[1]] = blob.get(key_info[1])
-            self.__default_dict[key_info[2]] = blob.get(key_info[2])
-
-        return self.__default_dict
-
-obj = BlobSvc('poctrials')
-
-pprint.pprint(obj.list_blobs('raw'))
+        return pd.DataFrame(data,columns=columns)

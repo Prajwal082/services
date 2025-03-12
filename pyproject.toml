@@ -12,6 +12,7 @@ python-dotenv = "^1.0.1"
 azure-mgmt-logic = "^10.0.0"
 azure-storage-blob = "^12.24.1"
 azure-keyvault = "^4.2.0"
+pandas = "^2.2.3"
 
 
 [build-system]

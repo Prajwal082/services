@@ -1,9 +1,9 @@
-from services.messaging.lga import LogicApp()
+from services.messaging.lga import LogicApp
 
 obj = LogicApp()
 
-_to = 'pprajwal312@gmail.com'
-_cc = 'pprajwal312@gmail.com'
+_to = 'abc@gmail.com'
+_cc = 'xyz@gmail.com'
 _subject = 'Test email from Logic App!'
 _body = None
 
