@@ -62,6 +62,24 @@ class LogicApp:
         subject : str,
         body:str
     ) -> None:
+        """
+            Sends an email using Azure Logic Apps.
+        
+            This method triggers an email with the specified recipients, subject, and body. 
+            It logs the request parameters and invokes the `run_trigger` method to send the email.
+        
+            Args:
+                to (List[str]): A list of recipient email addresses.
+                cc (List[str]): A list of CC (carbon copy) email addresses.
+                subject (str): The subject of the email.
+                body (str): The content/body of the email.
+        
+            Raises:
+                AssertionError: If `to`, `subject`, or `body` is None.
+        
+            Returns:
+                None
+        """
 
         assert to is not None and subject is not None and body is not None, "Empty params are not supported!"
     
