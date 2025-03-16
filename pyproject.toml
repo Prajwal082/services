@@ -2,7 +2,7 @@
 name = "services"
 version = "0.1.0"
 description = ""
-authors = ["Prajwal Poojary <pprajwal312@gmail.com>"]
+authors = ["USER"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
