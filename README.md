@@ -18,7 +18,7 @@ This module provides essential utilities to perform operations on:
    - Enables sending **emails** via **Azure Logic Apps**.  
 
 3. **Storage Module**  
-   - Facilitates **CRUD operations** on **Azure Blob Storage**.  
+   - Facilitates **Blob List operations** on **Azure Blob Storage**.  
 
 ---
 
